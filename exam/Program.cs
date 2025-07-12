@@ -11,6 +11,7 @@ using System.Text;
 using System.Data.SqlTypes;
 using System.Security.Cryptography;
 using System.Runtime.Intrinsics.X86;
+using System.ComponentModel.Design;
 
 namespace exam
 {
@@ -152,6 +153,53 @@ namespace exam
 
 
         #region Q9
+
+        #endregion
+
+
+
+        #region Q10
+
+        static int ? average( int? [] arr)
+        {
+            int sum = 0;
+            int counter = 0;
+            if (arr == null)
+            {
+
+                return null;
+
+            }
+
+            else
+            {
+                for (int  i = 0; i < arr.Length; i++)
+                {
+
+                    if (arr[i].HasValue)
+                    {
+                        sum += arr[i]!.Value  ;
+                        counter++;
+                    }
+
+
+                }
+
+            }
+
+            if (counter == 0)
+            {
+                return 0;
+            }
+            
+
+            return sum / counter;
+
+
+
+
+        }   
+
 
         #endregion
 
@@ -453,6 +501,22 @@ namespace exam
 
 
 
+            #endregion
+
+
+
+
+
+            #region q10 
+            //Create a function that accepts an array of int? (nullable scores). Return the average of all nonnull scores.If all scores are null, return null.
+            int?[] arr04 = { 1, 2, 3, null, 5, 6, 7, 9, null };
+            int?[] arr05 = { null, null };
+            int? result = average(arr05);
+
+            if (result.HasValue)
+                Console.WriteLine($"Average score = {result.Value}");
+            else
+                Console.WriteLine("No valid scores to calculate average.");
             #endregion
 
 
